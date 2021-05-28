@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Amsterdam,Netherlands</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+	.imgs{
+		border:1px solid #ddd;
+		border-radius: 4px;
+		padding: 5px;
+		width: 150px;
+
+	}
+	.imgs:hover{
+		box-shadow: 0 0 2px 1px rgba(0,140,186,0.5);
+
+	}
+	.imgcont{
+		padding: 5px;
+		margin-right: 10px;
+		margin-top: 20px;
+		margin-left: 30px; 
+		margin-bottom: 20px;
+	}
+
+</style>
+</head>
+<body>
+
+   <!-- the div class names will help in css to call and edit the html code blocks -->
+	<div class="container" style="height: 150vh">
+		 <div class="navbar">
+		 	<h2>City of Amsterdam</h2>
+		  <nav>
+		    <ul class="menuItems">
+		      <li><a href='index.html' data-item='Home'>Home</a></li>
+		      <li><a href='about.html' data-item='About'>About</a></li>
+		      <li><a href='lifestyle.html' data-item='Projects'>Lifestyle</a></li>
+		      <li><a href='events.html' data-item='Blog'>Events</a></li>
+		      <li><a href='connect with us.html' data-item='Contact'>Connect With Us</a></li>
+		    </ul>
+		  </nav>
+
+		 </div><br><br>
+		 <h2 style="text-align: center;">Lifestyle in Amsterdam</h2><br>
+		 <p style="text-align: center;">Tourism of assorted types is a significant and developing monetary action. Numerous guests to the city come for business purposes or to go to meetings, especially at the enormous RAI Presentation and Congress Center. Since it is feasible to see a large number of the destinations by walking in a solitary day, roadtrips to Amsterdam are additionally incredibly famous.</p>
+		 <div class="img-slider">
+      <div class="slide active">
+        <img src="images/rij.jpg" alt="">
+        <div class="info">
+          <h3>Rijksmuseum</h3>
+          <p>One of Amsterdam's most well known attractions - and positively its most significant craftsmanship vault - the Rijksmuseum (Public Gallery) was established in 1798 to house the country's tremendous assortment of uncommon workmanship and relics. Notwithstanding its artistic creations, the Rijksmuseum brags an all around supplied library in excess of 35,000 books and original copies, just as various interesting showcases managing the advancement of craftsmanship and culture in the Netherlands.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/an.jpg" alt="">
+        <div class="info">
+          <h3>Anne Frank House</h3>
+          <p>Anne Frank House (Anne Frank Huis) stands on the Prinsengracht. Devoted to the all around short existence of one of the world's most popular Holocaust casualties, this is the genuine home where Anne's family stowed away for a lot of WWII. They were Jewish evacuees from the German city of Frankfurt, and it was here that Anne composed the journal that turned into a global smash hit after the conflict, only a couple a very long time after her demise at age 15 - and only two months before the conflict finished.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/van.jpg" alt="">
+        <div class="info">
+          <h3>Van Gogh Museum</h3>
+          <p>An absolute necessity visit for workmanship fans and history specialists, the fantastic Van Gogh Exhibition hall has been one of Amsterdam's top attractions since it opened in 1972. Committed to the regularly disturbed life and remarkable imaginativeness of one of the nation's most-loved painters, this cutting edge Gerrit Rietveld-planned design is home to the world's biggest assortment of Van Gogh artistic creations and antiquities, a lot of it gave by his sibling, Theo, and other relatives.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/jor.jpg" alt="">
+        <div class="info">
+          <h3>Jordaan</h3>
+          <p>Jordaan is the most mainstream of Amsterdam's areas and is notable for its blend of local locations with garden patios, energetic business sectors, and upscale stores and restaurants. The zone is additionally home to a lot of fun activities, from going for a lovely walk along the numerous pleasant roads to investing energy visiting the many first class vacation spots situated here.</p>
+        </div>
+      </div>
+      <div class="slide">
+        <img src="images/1.jpg" alt="">
+        <div class="info">
+          <h3>Oude Kerk (Old Church)</h3>
+          <p>The Oude Kerk (Old Church) - constructed in 1306 and the city's most established design - stays unaltered since Rembrandt's time. The main lobby church in North Holland, this astonishing piece of engineering turned into the model for some different places of worship in the region.Numerous options were added throughout the long term, for example, the huge side sanctuaries from the mid 1500s. Likewise dating from this period is an entrance prompting the Iron Sanctuary, where reports showing the city's advantages, including the independence from tolls conceded in 1275, were kept bolted behind an iron entryway.</p>
+        </div>
+      </div>
+      <div class="navigation">
+        <div class="btn active"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+        <div class="btn"></div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+    var slides = document.querySelectorAll('.slide');
+    var btns = document.querySelectorAll('.btn');
+    let currentSlide = 1;
+
+    // Javascript for image slider manual navigation
+    var manualNav = function(manual){
+      slides.forEach((slide) => {
+        slide.classList.remove('active');
+
+        btns.forEach((btn) => {
+          btn.classList.remove('active');
+        });
+      });
+
+      slides[manual].classList.add('active');
+      btns[manual].classList.add('active');
+    }
+
+    btns.forEach((btn, i) => {
+      btn.addEventListener("click", () => {
+        manualNav(i);
+        currentSlide = i;
+      });
+    });
+
+    // Javascript for image slider autoplay navigation
+    var repeat = function(activeClass){
+      let active = document.getElementsByClassName('active');
+      let i = 1;
+
+      var repeater = () => {
+        setTimeout(function(){
+          [...active].forEach((activeSlide) => {
+            activeSlide.classList.remove('active');
+          });
+
+        slides[i].classList.add('active');
+        btns[i].classList.add('active');
+        i++;
+
+        if(slides.length == i){
+          i = 0;
+        }
+        if(i >= slides.length){
+          return;
+        }
+        repeater();
+      }, 10000);
+      }
+      repeater();
+    }
+    repeat();
+    </script>
+		</div><br><br>
+		<div class="content">
+			<h2 style="text-align: center" class="card-head">Explore more</h2><br>
+			<div class="add">
+				<div class="additems">
+					<div class="addcard">
+						<img class="img-card" src="images/food.jpg"/>
+						<div class="content-card">
+							<h3 class="card-head">What to eat</h3>
+							<p class="text-card">Through the broadly uncurtained windows of any home, you'll still probably spot good dishes moored by meat, pureed potatoes and kale. Be that as it may, Dutch food is developing, with another age of gourmet experts modernizing exemplary dishes. Some of the best restaurants in the city are Jansz,De Kas,Wilde Zwijnen and Sotto Pizza. The neighbourhoods of this amazing place will be oozing with great aromas from different houses. The food is amazingly good and healthy.</p>
+						</div>
+						
+					</div>
+				</div>
+				<div class="additems">
+					<div class="addcard">
+						<img class="img-card" src="images/hot.jpg"/>
+						<div class="content-card">
+							<h3 class="card-head">Where to sleep </h3>
+							<p class="text-card">.When you ride a bicycle down Amsterdam's streets, zooming past lovely houses, green parks, and stream trenches, you'll never need to leave this supernatural city. Picking the opportune spot in Amsterdam can be distressing, and in the event that you're doing whatever it takes not to blend with the insane alcoholic travelers and stag parties, there are sure areas to maintain a strategic distance from. To name a few quite areas like Cityhub Amsterdam and Hotel Weber.</p>
+						</div>
+						
+					</div>
+				</div>
+				
+				
+			</div>
+		</div>
+
+		<h2 style="text-align: center" class="card-head">Featured Images of the beautiful city</h2><br>
+
+		<a class="imgcont" target="_blank" href="images/1.jpg">
+			<img class="imgs" src="images/1.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/2.jpg">
+			<img class="imgs" src="images/2.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/3.jpg">
+			<img class="imgs" src="images/3.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/4.jpg">
+			<img class="imgs" src="images/4.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/5.jpg">
+			<img class="imgs" src="images/5.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/6.jpg">
+			<img class="imgs" src="images/6.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/7.jpg">
+			<img class="imgs" src="images/7.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/an.jpg">
+			<img class="imgs" src="images/an.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/8.jpg">
+			<img class="imgs" src="images/8.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/9.jpg">
+			<img class="imgs" src="images/9.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/10.jpg">
+			<img class="imgs" src="images/10.jpg" alt="" style="width: 150px">
+		</a>
+		<a class="imgcont" target="_blank" href="images/11.jpg">
+			<img class="imgs" src="images/11.jpg" alt="" style="width: 150px">
+		</a>
+
+<section class="goes" style="background-color: #fff">
+		<h2>Get to know more about the city of Amsterdam by subcribing to our newsletters.</h2>
+		<p></p>
+		<a href="connect with us.html" class="gobutton">Learn More</a>
+	</section><br><br>
+
+ <footer>
+ 	<p>Copyright &copy; Kgosi  2021</p>
+ </footer>
+
+
+
+</body>
+</html>
